@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Departement {
+public class Departement implements Comparable<Departement> {
    private int id;
    private String nomDep;
     private int nbrEmp;
@@ -50,5 +50,18 @@ public class Departement {
                 ", nomDep='" + nomDep + '\'' +
                 ", nbrEmp=" + nbrEmp +
                 '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = result * 31 + id;
+        result = result * 31 + nomDep.hashCode();
+        return result;
+    }
+
+    @Override
+    public int compareTo(Departement o) {
+        return id - o.getId();
     }
 }
